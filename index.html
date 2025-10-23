@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔱 Millstroy Casino - Ты Богат! 🔱</title>
+    <style>
+        /* Общие стили 2000-х */
+        body {
+            background-color: #000033;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            border: 5px ridge #ff00ff;
+        }
+
+        /* Заголовок сайта */
+        h1 {
+            color: #ffff00;
+            text-shadow: 2px 2px #ff00ff;
+            font-size: 48px;
+            margin-bottom: 5px;
+            animation: blink 1s step-start infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0.5; }
+        }
+
+        h4 {
+            color: #00ffff;
+            font-style: italic;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        /* Баннер с акцией */
+        .banner {
+            background: linear-gradient(45deg, #ff0000, #ff6600, #ff0000);
+            padding: 15px;
+            border: 3px solid #ffff00;
+            margin: 10px auto;
+            max-width: 800px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px #000000;
+        }
+        #timer {
+            color: #00ff00;
+            font-size: 30px;
+        }
+        .banner-img {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: 0 auto 10px auto;
+            border: 2px dashed #00ffff;
+        }
+
+        /* Меню навигации */
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .menu a {
+            text-decoration: none;
+            color: #000000;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #ff00ff, #00ffff);
+            border: 2px outset #ffffff;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 5px 5px 0 #00ff00;
+            transition: all 0.1s;
+        }
+        .menu a:hover {
+            box-shadow: 2px 2px 0 #00ff00;
+            transform: translate(3px, 3px);
+        }
+
+        /* Блок слотов */
+        .slots h2 {
+            color: #ffffff;
+            text-decoration: underline wavy #ff0000;
+            margin-top: 40px;
+        }
+        .slot-item {
+            display: inline-block;
+            width: 200px;
+            margin: 15px;
+            padding: 10px;
+            border: 2px dashed #00ffff;
+            background-color: #003300;
+            vertical-align: top;
+        }
+        .slot-item h3 {
+            color: #ffff00;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .slot-item p {
+            font-size: 12px;
+        }
+        .slot-image {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border: 1px solid #ff00ff;
+        }
+
+        /* Чат (стили не изменены) */
+        .chat-container {
+            position: fixed;
+            top: 100px;
+            right: 10px;
+            width: 250px;
+            height: 300px;
+            border: 5px double #ff00ff;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 5px;
+            z-index: 100;
+        }
+        .chat-header {
+            background-color: #660066;
+            color: white;
+            padding: 5px;
+            font-weight: bold;
+            cursor: move;
+        }
+        .chat-content {
+            height: 250px;
+            overflow-y: scroll;
+            text-align: left;
+            padding: 5px;
+        }
+        .admin-msg { color: #ff0000; font-weight: bold; }
+        .win-msg { color: #ffff00; }
+        .fail-msg { color: #999999; }
+
+        /* Джекпот */
+        .jackpot {
+            background-color: #800080;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 600px;
+            border: 5px solid #ff0000;
+            animation: pulse 1s infinite;
+        }
+        .jackpot-amount {
+            font-size: 60px;
+            font-weight: bolder;
+            color: #ffffff;
+            text-shadow: 4px 4px #ff0000;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 10px #ff0000; }
+            50% { transform: scale(1.05); box-shadow: 0 0 20px #ff0000; }
+            100% { transform: scale(1); box-shadow: 0 0 10px #ff0000; }
+        }
+
+        /* Футер */
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #333333;
+            font-size: 10px;
+            border-top: 2px solid #00ffff;
+        }
+        .scrolling-text {
+            background-color: #330033;
+            color: #ffff00;
+            padding: 5px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            border-top: 2px solid #ff00ff;
+        }
+        .scrolling-text marquee {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        /* Фото Мелстроя в конце */
+        .mellstroy-footer-img {
+            margin-top: 30px;
+            width: 300px;
+            border: 5px solid #ffff00;
+            box-shadow: 0 0 20px #ff00ff;
+            transform: rotate(-3deg);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mellstroy-footer-img:hover {
+            transform: rotate(3deg) scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scrolling-text">
+        <marquee behavior="scroll" direction="left">🔥 ДЕНЬГИ ПРУТ! ЖМИ! ЖМИ! 🔥 МИЛСТРОЙ ВЕРИТ В ТЕБЯ! 🔥 ЭТО НЕ КИДАЛОВО, КЛЯНУСЬ! 🔥</marquee>
+    </div>
+
+    <h1>🔱 Mellstroy Casino - Ты Богат! 🔱</h1>
+    <h4>*Твой Шанс Стать Миллиардером, а не просто "каким-то там"...*</h4>
+
+    <div class="banner">
+        <img src="mellstroy_banner.gif" alt="ДЕНЬГИ ПРУТ! ЖМИ!" class="banner-img">
+        🔥 **МЕГА-АКЦИЯ ТОЛЬКО СЕГОДНЯ!** 🔥<br>
+        ПОПОЛНИ БАЛАНС – ПОЛУЧИ УДВОЕНИЕ! (до $1000)<br>
+        УСПЕЙ! ДО КОНЦА АКЦИИ: <span id="timer">00:01:23</span>
+    </div>
+
+    <div class="menu">
+        <a href="#">$ЛОТЫ</a>
+        <a href="#">РУЛЕТКА</a>
+        <a href="#">ЛАЙВ-ДИЛЕРЫ (НЕ КИДАЛОВО!)</a>
+        <a href="#">КЕШБЭК</a>
+        <a href="#">ГАЛЕРЕЯ ДИМОК</a>
+        <a href="#">ГОРЯЧИЕ НОВОСТИ</a>
+    </div>
+
+    <hr style="border-top: 2px dotted #00ffff;">
+
+    <div class="slots">
+        <h2>🎰 ПОПУЛЯРНЫЕ СЛОТЫ 🎰</h2>
+        
+        <div class="slot-item">
+            <img class="slot-image" src="slot_gold.gif" alt="Золото А.Б.">
+            <h3>🤑 Золото А.Б.</h3>
+            <p>Собери 777 и получи $7,777,777! *Просто надо кликнуть!*</p>
+        </div>
+        
+        <div class="slot-item">
+            <img class="slot-image" src="slot_lamba.webp" alt="Ламборгини">
+            <h3>🍾 Вечеринка в Москва-Сити</h3>
+            <p>Почувствуй себя в Дубае! Бонус-игра "Найди Ламборгини"!</p>
+        </div>
+        
+        <div class="slot-item">
+            <img class="slot-image" src="slot_skull.gif" alt="Череп">
+            <h3>💀 Треш-Стрим-2000</h3>
+            <p>Классика! Высокий риск, высокий выигрыш! (RTP 10%)</p>
+        </div>
+        
+        <div class="slot-item">
+            <img class="slot-image" src="slot_crash.gif" alt="Взрыв">
+            <h3>💎 Меллстрой-Краш</h3>
+            <p>Сделай ставку и успей забрать деньги, пока "КРАШ" не случится! **Х1000 в каждой игре!**</p>
+        </div>
+    </div>
+
+    <hr style="border-top: 2px dotted #00ffff;">
+
+    <div class="jackpot">
+        <p>🚨 **САМЫЙ БОЛЬШОЙ ДЖЕКПОТ!** 🚨</p>
+        <div class="jackpot-amount" id="jackpot-counter">$999,999,999.00</div>
+        <p>*(Сорвать может только настоящий БОГАТЫЙ)*</p>
+    </div>
+
+    <hr style="border-top: 2px dotted #00ffff;">
+    
+    <div class="rules">
+        <h2>❓ КАК ЭТО РАБОТАЕТ (ВСЁ ЧЕСТНО!) ❓</h2>
+        <p>1. **Зарегистрируйся!** (Нужен только E-mail и пароль)</p>
+        <p>2. **Пополни счёт!** (QIWI, WebMoney, СМС – ЛЕГКО!)</p>
+        <p>3. **НАЖИМАЙ!**</p>
+        <p>4. **ВЫИГРЫВАЙ!** (И не забудь задонатить Мiлстрою на новый Роллс!)</p>
+    </div>
+    
+    <hr style="border-top: 2px dotted #00ffff;">
+
+    <footer>
+        <img src="mellstroy_main_photo.jpg" alt="Мiлстрой - Твой Бог!" class="mellstroy-footer-img">
+        <p>
+            *Внимание! Играя в M*i*llstroy Cas*i*no, вы соглашаетесь с тем, что вы тут чтобы стать миллиардером, а не нытиком. Ответственность за свои бабки несете вы! 18+. Лицензия выдана на острове **Маврикий** (или другом, не помним). При регистрации вы соглашаетесь, что Мiлстрой - лучший!*
+        </p>
+        <p>&copy; <a href="#" style="color: #ff00ff; text-decoration: none;">Mellstroy.game</a> 2005 - <span id="current-year">2024</span> | Мы за честную игру! (Наверное)</p>
+        <p>🔥 ВСЕ ПРАВА ЗАЩИЩЕНЫ! 🔥</p>
+    </footer>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            💬 ЧАТ УЧАСТНИКОВ (Реальные люди, клянусь!)
+        </div>
+        <div class="chat-content">
+            <p class="win-msg"><strong>Prokhor777:</strong> ВСЕ! БАБКИ ВЫВЕЛ! $500,000! СПАСИБО МИЛСТРОЙ!</p>
+            <p class="win-msg"><strong>Ledi_Valeria:</strong> Пацаны, я с $5 подняла $1500! Муж в шоке! ❤️</p>
+            <p class="admin-msg"><strong>ADMIN_Mell:</strong> Всем привет! Сегодня Мiлстрой разыграет 500,000! Не пропустите СТРИМ!</p>
+            <p class="fail-msg"><strong>NeLoh:</strong> Где мои $20?? Мiлстрой, ты... [ Сообщение удалено администратором ]</p>
+            <p class="win-msg"><strong>Prokhor777:</strong> (Снова) ЭТО ЛУЧШЕЕ КАЗИНО! ВСЕ СЮДА!</p>
+            <p><strong>Pavel2003:</strong> Щас закину последние 100р, молюсь!</p>
+            <p class="win-msg"><strong>ADMIN_Mell:</strong> **Pavel2003** УДАЧИ БРО! ТЫ СТАНЕШЬ БОГАТЫМ!</p>
+            <p class="win-msg"><strong>Kazino_King:</strong> Только что сорвал $5000 в слоте "Золото А.Б."!</p>
+        </div>
+    </div>
+    
+    <script>
+        // Примитивный скрипт для таймера
+        let time = 70;
+        const timerElement = document.getElementById('timer');
+        
+        function updateTimer() {
+            const minutes = Math.floor(time / 60);
+            const seconds = time % 60;
+            // Добавляем случайные миллисекунды для эффекта "мигающего" таймера
+            timerElement.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}:${Math.floor(Math.random() * 100).toString().padStart(2, '0')}`;
+            time--;
+
+            if (time < 0) {
+                time = 70; // Рестарт
+            }
+        }
+        setInterval(updateTimer, 1000);
+
+        // Скрипт для "бегущего" джекпота
+        const jackpotElement = document.getElementById('jackpot-counter');
+        function updateJackpot() {
+            let current = parseFloat(jackpotElement.textContent.replace(/\$|,/g, ''));
+            let newAmount = current + (Math.random() * 0.01) - 0.005;
+            jackpotElement.textContent = '$' + newAmount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        setInterval(updateJackpot, 50);
+
+        // Обновляем текущий год
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
